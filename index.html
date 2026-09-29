@@ -1,1 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VALSA CARGO: soluciones logísticas internacionales, transporte marítimo, aéreo, terrestre y acompañamiento en comercio exterior.">
+  <title>VALSA CARGO | Colombia · Global Logistics</title>
+  <style>
+    :root{
+      --navy:#031d3b;
+      --blue:#075da8;
+      --cyan:#08a9df;
+      --orange:#ff8a00;
+      --white:#ffffff;
+      --soft:#f4f8fc;
+      --text:#24354a;
+      --shadow:0 16px 40px rgba(3,29,59,.14);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+    a{text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1160px,90%);margin:auto}
 
+    .topbar{background:var(--navy);color:#dcecff;font-size:.9rem}
+    .topbar .container{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:8px 0}
+    .topbar a{color:#fff}
+    .social-mini{display:flex;gap:14px;flex-wrap:wrap}
+
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-shadow:0 3px 18px rgba(3,29,59,.09)}
+    nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .brand{display:flex;align-items:center;gap:12px;color:var(--navy);font-weight:800;letter-spacing:.04em}
+    .brand img{width:62px;height:62px;object-fit:contain}
+    .navlinks{display:flex;align-items:center;gap:24px;list-style:none}
+    .navlinks a{color:var(--navy);font-size:.95rem;font-weight:700}
+    .navlinks a:hover{color:var(--orange)}
+    .quote-small{background:var(--orange);color:#fff!important;padding:11px 18px;border-radius:999px}
+
+    .hero{min-height:78vh;position:relative;display:grid;place-items:center;color:#fff;overflow:hidden;background:
+      linear-gradient(105deg,rgba(3,29,59,.96) 0%,rgba(3,29,59,.82) 48%,rgba(7,93,168,.46) 100%),
+      url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1800&q=85') center/cover no-repeat}
+    .hero:after{content:"";position:absolute;inset:auto -10% -45% 35%;height:70%;background:radial-gradient(circle,rgba(8,169,223,.42),transparent 68%)}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:55px;padding:90px 0}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:8px 14px;border-radius:999px;font-size:.88rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    .hero h1{font-size:clamp(2.5rem,5.4vw,5.1rem);line-height:1.02;margin:24px 0 18px;max-width:780px}
+    .hero h1 span{color:var(--orange)}
+    .hero p{font-size:clamp(1rem,1.6vw,1.25rem);max-width:700px;color:#eaf4ff}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 23px;border-radius:10px;font-weight:800;transition:.2s}
+    .btn-primary{background:var(--orange);color:#fff;box-shadow:0 12px 26px rgba(255,138,0,.28)}
+    .btn-secondary{border:1px solid rgba(255,255,255,.7);color:#fff;background:rgba(255,255,255,.08)}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-logo-card{background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.6);border-radius:28px;padding:26px;box-shadow:var(--shadow)}
+    .hero-logo-card img{width:100%;max-height:390px;object-fit:contain;margin:auto}
+
+    section{padding:88px 0}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 45px}
+    .section-head .kicker{color:var(--orange);font-weight:800;text-transform:uppercase;letter-spacing:.09em;font-size:.85rem}
+    .section-head h2{color:var(--navy);font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin:10px 0 14px}
+    .services{background:var(--soft)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:#fff;border-radius:18px;padding:28px;border:1px solid #e3edf6;box-shadow:0 10px 28px rgba(3,29,59,.07);transition:.25s}
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+    .icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-size:1.5rem;margin-bottom:20px}
+    .card h3{color:var(--navy);margin-bottom:8px;font-size:1.18rem}
+
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+    .about-visual{min-height:420px;border-radius:26px;background:
+      linear-gradient(rgba(3,29,59,.24),rgba(3,29,59,.34)),
+      url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1200&q=85') center/cover no-repeat;box-shadow:var(--shadow)}
+    .about-copy h2{font-size:clamp(2rem,4vw,3rem);color:var(--navy);line-height:1.15;margin-bottom:18px}
+    .checks{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+    .check{background:var(--soft);border-left:4px solid var(--orange);padding:14px;border-radius:8px;font-weight:700;color:var(--navy)}
+
+    .coverage{background:linear-gradient(125deg,var(--navy),var(--blue));color:#fff}
+    .coverage .section-head h2,.coverage .section-head p{color:#fff}
+    .coverage-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+    .coverage-item{padding:24px 14px;text-align:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;font-weight:800}
+
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px}
+    .contact-card,.social-card{border-radius:22px;padding:34px;box-shadow:var(--shadow)}
+    .contact-card{background:var(--navy);color:#fff}
+    .contact-card h2{font-size:2rem;margin-bottom:18px}
+    .contact-row{margin:14px 0}
+    .contact-row a{color:#fff}
+    .social-card{background:#fff;border:1px solid #e3edf6}
+    .social-card h3{color:var(--navy);font-size:1.55rem;margin-bottom:18px}
+    .social-links{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .social-link{padding:14px;border-radius:10px;background:var(--soft);color:var(--navy);font-weight:800;border:1px solid #e1ebf4}
+    .social-link:hover{background:var(--blue);color:#fff}
+
+    footer{background:#01162e;color:#cfe2f4;text-align:center;padding:28px 20px}
+    .whatsapp{position:fixed;right:24px;bottom:24px;z-index:60;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;font-size:1.7rem;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+
+    @media(max-width:900px){
+      .navlinks{display:none}
+      .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .hero-logo-card{max-width:480px;margin:auto}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .coverage-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:600px){
+      .topbar .container{justify-content:center;text-align:center}.social-mini{display:none}
+      .brand img{width:52px;height:52px}
+      .cards,.checks,.social-links,.coverage-grid{grid-template-columns:1fr}
+      section{padding:68px 0}.hero-grid{padding:65px 0}.hero-logo-card{padding:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>Soluciones logísticas internacionales desde Colombia</span>
+      <div class="social-mini">
+        <a href="https://www.facebook.com/valsacargo?rdc=1&rd#" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/valsacargo/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/valsacargo/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <nav class="container">
+      <a class="brand" href="#inicio"><img src="logovalsa.png" alt="Logo VALSA CARGO"><span>VALSA CARGO</span></a>
+      <ul class="navlinks">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#cobertura">Cobertura</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a class="quote-small" href="mailto:info@valsacargo.com.co?subject=Solicitud%20de%20cotización">Cotizar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Colombia · Global Logistics</span>
+          <h1>Conectamos su carga con <span>el mundo</span></h1>
+          <p>Soluciones integrales para transporte marítimo, aéreo y terrestre, acompañadas de servicios aduaneros, almacenamiento y atención personalizada.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:info@valsacargo.com.co?subject=Solicitud%20de%20cotización">Solicitar cotización</a>
+            <a class="btn btn-secondary" href="#servicios">Conocer servicios</a>
+          </div>
+        </div>
+        <div class="hero-logo-card">
+          <img src="logovalsa.png" alt="VALSA CARGO Colombia Global Logistics">
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Soluciones integrales</span>
+          <h2>Nuestros servicios</h2>
+          <p>Acompañamos cada operación con soluciones adaptadas a las necesidades de su empresa.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="icon">⚓</div><h3>Transporte marítimo</h3><p>Servicios FCL y LCL desde y hacia los principales puertos del mundo.</p></article>
+          <article class="card"><div class="icon">✈</div><h3>Transporte aéreo</h3><p>Alternativas ágiles para operaciones internacionales y cargas prioritarias.</p></article>
+          <article class="card"><div class="icon">▰</div><h3>Transporte terrestre</h3><p>Movilización nacional y conexión con puertos y principales ciudades.</p></article>
+          <article class="card"><div class="icon">✓</div><h3>Gestión aduanera</h3><p>Acompañamiento especializado para sus procesos de comercio exterior.</p></article>
+          <article class="card"><div class="icon">▦</div><h3>Bodegaje e inventarios</h3><p>Almacenamiento, administración y manejo organizado de mercancías.</p></article>
+          <article class="card"><div class="icon">◆</div><h3>Carga proyecto</h3><p>Coordinación de carga sobredimensionada, pesada y operaciones especiales.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <div class="container about-grid">
+        <div class="about-visual" aria-label="Operación logística marítima"></div>
+        <div class="about-copy">
+          <span class="kicker">Quiénes somos</span>
+          <h2>Un aliado para su operación logística</h2>
+          <p>VALSA CARGO es una compañía especializada en logística internacional. Trabajamos para ofrecer soluciones fiables a importadores, exportadores y empresas que necesitan coordinación, visibilidad y acompañamiento en sus operaciones de comercio exterior.</p>
+          <div class="checks">
+            <div class="check">Atención personalizada</div>
+            <div class="check">Cobertura internacional</div>
+            <div class="check">Coordinación integral</div>
+            <div class="check">Orientación a resultados</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="coverage" id="cobertura">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Presencia global</span>
+          <h2>Conectamos Colombia con mercados internacionales</h2>
+          <p>Coordinamos soluciones logísticas para múltiples regiones del mundo.</p>
+        </div>
+        <div class="coverage-grid">
+          <div class="coverage-item">Colombia</div><div class="coverage-item">Latinoamérica</div><div class="coverage-item">Norteamérica</div><div class="coverage-item">Europa</div><div class="coverage-item">Asia</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container contact-grid">
+        <div class="contact-card">
+          <h2>Hablemos de su próxima operación</h2>
+          <p>Estamos preparados para conocer su necesidad y orientar la solución logística adecuada.</p>
+          <div class="contact-row">Teléfono: <a href="tel:+573214574185">+57 321 457 4185</a></div>
+          <div class="contact-row">Correo: <a href="mailto:info@valsacargo.com.co">info@valsacargo.com.co</a></div>
+          <div class="contact-row">Ubicación: Bogotá D. C., Colombia</div>
+        </div>
+        <div class="social-card">
+          <h3>Encuentre a VALSA CARGO</h3>
+          <p style="margin-bottom:20px">Visite nuestros canales y perfiles corporativos.</p>
+          <div class="social-links">
+            <a class="social-link" href="https://www.facebook.com/valsacargo?rdc=1&rd#" target="_blank" rel="noopener">Facebook</a>
+            <a class="social-link" href="https://www.instagram.com/valsacargo/" target="_blank" rel="noopener">Instagram</a>
+            <a class="social-link" href="https://www.linkedin.com/in/valsacargo/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="social-link" href="https://www.google.com/search?q=valsa+cargo&rlz=1C1ONGR_esCO1018CO1019&oq=valsa+cargo&aqs=chrome..69i57j46i175i199i512j35i39j69i60l2.2902j0j7&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener">Buscar en Google</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp" href="https://wa.me/573214574185" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">●</a>
+  <footer>© 2026 VALSA CARGO SAS · Colombia · Global Logistics</footer>
+</body>
+</html>
