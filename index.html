@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="VALSA CARGO: soluciones logísticas internacionales, transporte marítimo, aéreo, terrestre y acompañamiento en comercio exterior.">
   <title>VALSA CARGO | Colombia · Global Logistics</title>
+  <link rel="canonical" href="https://www.valsacargo.com.co/">
+  <link rel="icon" type="image/png" href="logovalsa.png">
+  <link rel="apple-touch-icon" href="logovalsa.png">
+  <meta name="theme-color" content="#031d3b">
+  <!-- Vista previa al compartir (WhatsApp, LinkedIn, Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="VALSA CARGO">
+  <meta property="og:title" content="VALSA CARGO | Colombia · Global Logistics">
+  <meta property="og:description" content="Soluciones logísticas internacionales: transporte marítimo, aéreo y terrestre, gestión aduanera y bodegaje.">
+  <meta property="og:url" content="https://www.valsacargo.com.co/">
+  <meta property="og:image" content="https://www.valsacargo.com.co/logovalsa.png">
+  <meta name="twitter:card" content="summary">
   <style>
     :root{
       --navy:#031d3b;
@@ -35,6 +48,9 @@
     .navlinks{display:flex;align-items:center;gap:18px;list-style:none}
     .navlinks a{color:var(--navy);font-size:.95rem;font-weight:700}
     .navlinks a:hover{color:var(--orange)}
+    .menu-btn{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;border-radius:10px;color:var(--navy)}
+    .menu-btn svg{width:28px;height:28px}
+    .menu-btn:hover{background:var(--soft)}
     .quote-small{background:var(--orange);color:#fff!important;padding:11px 18px;border-radius:999px}
 
     .hero{min-height:78vh;position:relative;display:grid;place-items:center;color:#fff;overflow:hidden;background:
@@ -115,11 +131,23 @@
     .lightbox img{max-height:88vh;border-radius:12px}
     .lightbox button{position:absolute;top:18px;right:22px;background:none;border:0;color:#fff;font-size:2.2rem;cursor:pointer}
 
-    footer{background:#01162e;color:#cfe2f4;text-align:center;padding:28px 20px}
-    .whatsapp{position:fixed;right:24px;bottom:24px;z-index:60;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;font-size:1.7rem;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+    footer{background:#01162e;color:#cfe2f4;text-align:center;padding:30px 20px;font-size:.92rem}
+    .foot-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 22px;margin-bottom:12px}
+    .foot-links a{color:#fff;font-weight:700}
+    .foot-links a:hover{color:var(--orange)}
+    .foot-legal{max-width:760px;margin:0 auto 10px;font-size:.82rem;color:#9fb6cc}
+    .whatsapp{position:fixed;right:24px;bottom:24px;z-index:60;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,.25);transition:.2s}
+    .whatsapp:hover{transform:scale(1.08)}
+    .whatsapp svg{width:34px;height:34px;fill:#fff}
 
     @media(max-width:1020px){
-      .navlinks{display:none}
+      nav{position:relative}
+      .menu-btn{display:grid;place-items:center}
+      .navlinks{display:none;position:absolute;top:100%;left:-5.5%;right:-5.5%;flex-direction:column;align-items:stretch;gap:0;background:#fff;box-shadow:0 14px 26px rgba(3,29,59,.14);padding:8px 0 16px}
+      .navlinks.open{display:flex}
+      .navlinks li a{display:block;padding:13px 6%}
+      .navlinks li a:not(.quote-small):hover{background:var(--soft)}
+      .navlinks .quote-small{margin:10px 6% 0;text-align:center}
       .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
       .hero-logo-card{max-width:480px;margin:auto}
       .cards,.gallery{grid-template-columns:repeat(2,1fr)}
@@ -131,6 +159,7 @@
       .brand img{width:52px;height:52px}
       .cards,.checks,.social-links,.coverage-grid,.gallery{grid-template-columns:1fr}
       .doc-go{display:none}
+      footer{padding-bottom:100px}
       section{padding:68px 0}.hero-grid{padding:65px 0}.hero-logo-card{padding:16px}
     }
   </style>
@@ -150,7 +179,10 @@
   <header>
     <nav class="container">
       <a class="brand" href="#inicio"><img src="logovalsa.png" alt="Logo VALSA CARGO"><span>VALSA CARGO</span></a>
-      <ul class="navlinks">
+      <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="navlinks" id="menu">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
@@ -283,8 +315,33 @@
     </section>
   </main>
 
-  <a class="whatsapp" href="https://wa.me/573214574185" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">●</a>
-  <footer>© 2026 VALSA CARGO SAS · Colombia · Global Logistics · <a href="#sgs" style="color:#fff">Documentos SGS</a> · Visitas: <span id="visitas">—</span></footer>
+  <a class="whatsapp" href="https://wa.me/573214574185?text=Hola%20VALSA%20CARGO%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp" title="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C8.9 3 3.1 8.8 3.1 15.94c0 2.28.6 4.5 1.73 6.46L3 29l6.78-1.78a12.9 12.9 0 0 0 6.26 1.6h.01c7.13 0 12.94-5.8 12.94-12.94C28.99 8.8 23.18 3 16.04 3Zm0 23.64h-.01a10.7 10.7 0 0 1-5.46-1.5l-.39-.23-4.02 1.06 1.07-3.92-.25-.4a10.7 10.7 0 0 1-1.64-5.71c0-5.93 4.82-10.75 10.76-10.75 5.93 0 10.75 4.82 10.75 10.76 0 5.93-4.83 10.7-10.81 10.7Zm5.9-8.05c-.32-.16-1.91-.94-2.21-1.05-.3-.11-.51-.16-.73.16-.21.32-.83 1.05-1.02 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.86-1.6-1.91-1.8-2.23-.18-.32-.02-.5.14-.65.15-.15.32-.38.48-.56.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.69 0 1.58 1.16 3.12 1.32 3.33.16.21 2.28 3.48 5.52 4.88.77.33 1.37.53 1.84.68.77.25 1.48.21 2.03.13.62-.09 1.91-.78 2.18-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.62-.37Z"/></svg>
+  </a>
+  <footer>
+    <div class="foot-links">
+      <a href="#sgs">Documentos SGS</a>
+      <a href="Documentos/Politica-Tratamiento-Datos-Personales.pdf" target="_blank" rel="noopener">Política de Tratamiento de Datos Personales</a>
+      <a href="mailto:info@valsacargo.com.co?subject=Solicitud%20sobre%20datos%20personales">Ejercer derechos sobre datos personales</a>
+    </div>
+    <p class="foot-legal">En cumplimiento de la Ley 1581 de 2012, VALSA CARGO SAS trata los datos personales conforme a su Política de Tratamiento de Datos Personales.</p>
+    <p>© 2026 VALSA CARGO SAS · Colombia · Global Logistics · Visitas: <span id="visitas">—</span></p>
+  </footer>
+
+  <script>
+    // Menú móvil
+    (function(){
+      const btn = document.querySelector(".menu-btn"), menu = document.getElementById("menu");
+      btn.addEventListener("click", () => {
+        const open = menu.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open);
+        btn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+      });
+      menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+        menu.classList.remove("open"); btn.setAttribute("aria-expanded", false);
+      }));
+    })();
+  </script>
 
   <div class="lightbox" id="lightbox" role="dialog" aria-label="Vista ampliada">
     <button type="button" aria-label="Cerrar">×</button>
