@@ -284,7 +284,7 @@
   </main>
 
   <a class="whatsapp" href="https://wa.me/573214574185" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">●</a>
-  <footer>© 2026 VALSA CARGO SAS · Colombia · Global Logistics · <a href="#sgs" style="color:#fff">Documentos SGS</a></footer>
+  <footer>© 2026 VALSA CARGO SAS · Colombia · Global Logistics · <a href="#sgs" style="color:#fff">Documentos SGS</a> · Visitas: <span id="visitas">—</span></footer>
 
   <div class="lightbox" id="lightbox" role="dialog" aria-label="Vista ampliada">
     <button type="button" aria-label="Cerrar">×</button>
@@ -299,6 +299,7 @@
        2) Agregue una línea aquí con el nombre EXACTO del archivo.
        ========================================================= */
     const SGS_DOCS = [
+      // IMPORTANTE: nombres de archivo SIN tildes, SIN espacios, SIN ñ (usar guiones)
       { titulo: "Política, Objetivos y Alcance del SGS", archivo: "Politica-Objetivos-Alcance-SGS.pdf" },
       { titulo: "Política de Tratamiento de Datos Personales", archivo: "Politica-Tratamiento-Datos-Personales.pdf" },
       // { titulo: "Política SST",                    archivo: "Politica-SST.pdf" },
@@ -358,6 +359,15 @@
     function abrir(src, alt){ lbImg.src = src; lbImg.alt = alt; lb.classList.add("open"); }
     lb.addEventListener("click", e => { if (e.target !== lbImg) lb.classList.remove("open"); });
     document.addEventListener("keydown", e => { if (e.key === "Escape") lb.classList.remove("open"); });
+  </script>
+
+  <!-- Contador de visitas (GoatCounter) - panel: https://valsacargo.goatcounter.com -->
+  <script data-goatcounter="https://valsacargo.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script>
+    fetch("https://valsacargo.goatcounter.com/counter/TOTAL.json")
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(d => { document.getElementById("visitas").textContent = d.count; })
+      .catch(() => {});
   </script>
 </body>
 </html>
